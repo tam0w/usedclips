@@ -1,4 +1,6 @@
 import os
+
+
 def cleanname(sfk):
     if sfk.endswith('sfk'):
         newname = sfk.replace('.sfk','')
@@ -10,12 +12,12 @@ def cleanname(sfk):
     return '\\'+newname
 
 # cwd = os.curdir
-cwd = "E:\Videos\Valorant"
+cwd = r"E:\Videos\Valorant"
 os.chdir(cwd)
 dlist = os.listdir()
 
 used = "usedclips"
-path = os.path.join(cwd,used)
+path = os.path.join(cwd, used)
 print('This is the path of the destination:', path)
 
 print("Current working directory:", cwd)
@@ -38,8 +40,12 @@ for name in dlist:
         clean = cleanname(name)
         usedmp4list.append(clean)
 
-for name in usedmp4list:
+        dest = path + clean
 
-    dest = path + clean
-    print(dest)
-    os.rename(cwd,dest)
+        curfile = cwd + clean
+
+        try:
+            os.rename(curfile, dest)
+            print(clean, 'has been moved.')
+        except FileNotFoundError:
+            print('File has been deleted earlier.')
