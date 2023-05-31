@@ -14,8 +14,7 @@ def cleanname(sfk):
 
 # Locating the directory and listing files in it
 
-cwd = os.curdir
-os.chdir(cwd)
+cwd = os.path.dirname(os.path.abspath(__file__))
 dlist = os.listdir()
 
 print("Current working directory:", cwd)
