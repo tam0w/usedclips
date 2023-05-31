@@ -9,4 +9,4 @@ this method only works when the video clips are used in VEGAS PRO and an sfk fil
 
 1. Download the python program and store in the respective directory which contains your raw video files.
 2. Run the program.
-3. Inspect the videos moved to the 'usedclips' folder.
+3. Inspect (and/or Delete) the videos moved to the 'usedclips' folder.
