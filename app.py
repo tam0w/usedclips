@@ -20,7 +20,7 @@ dlist = os.listdir()
 print("Current working directory:", cwd)
 print('The total number of files in the current directory are:',len(dlist))
 
-path = os.path.join(cwd, 'usedclips')
+path = os.path.join(cwd, 'used_clips')
 
 # Folder Creation
 
