@@ -1,4 +1,14 @@
-import os
+import sys, os, time
+
+def get_current_directory():
+    if getattr(sys, 'frozen', False):
+        # Running in a PyInstaller bundle
+        return os.path.dirname(sys.executable)
+    else:
+        # Running in a normal Python environment
+        return os.path.dirname(os.path.abspath(__file__))
+# Example usage:
+cwd = get_current_directory()
 def cleanname(sfk):
     '''Strips the .sfk ends from each of the files and returns the cleaned name
     which can be used for locating the respective mp4 file.'''
@@ -14,7 +24,6 @@ def cleanname(sfk):
 
 # Locating the directory and listing files in it
 
-cwd = os.path.dirname(os.path.abspath(__file__))
 dlist = os.listdir()
 
 print("Current working directory:", cwd)
@@ -54,3 +63,5 @@ for name in dlist:
 
         except FileNotFoundError:
             print('File has been deleted earlier.')
+
+time.sleep(10)
